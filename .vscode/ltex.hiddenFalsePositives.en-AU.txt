@@ -1,0 +1,1 @@
+{"rule":"ADVERB_OR_HYPHENATED_ADJECTIVE","sentence":"^\\QI'm a passionate Embedded Systems and Mechatronics Engineer, talented at finding novel solutions to difficult problems.\\E$"}
