@@ -16,70 +16,52 @@
 	{Current}	{Embedded Software Engineer}{DroneShield - Australia}
 	{Nov 2023}	{
 		\begin{itemize}
-			\item Optimised the calibration process for our AFE by 20x, taking calibration time from 12+ Hrs down to 40 minutes. This removed a major bottleneck from the production team's process and increased their output capacity, leading to their ability to deliver far more units than before.
-			\item Implemented new battery management and alert features on our handheld devices. Part of this feature was solving a hardware caused bug in the firmware by managing power levels in the bootloader, drastically improving the lifespan of our batteries. Additionally, the user battery alerts improved the user experience of the device.
-			\item Extreme ownership over features and projects that I complete. I am responsible for my features requiring that I take initiative in coordinating other relevant parties and key stakeholders.
+			\item Delivered angle-of-arrival estimation and the conducted calibration behind it for a four-antenna direction-finding system (400\,MHz--7\,GHz). Designed simultaneous multi-channel injection through a characterised splitter, producing a per-channel correction table that removes amplitude and phase imbalance and makes bearing accuracy repeatable unit to unit.
+			\item Cut analog front-end calibration from over 12 hours to 40 minutes -- a \textbf{20x} improvement that removed the single largest bottleneck in production. Required a full rearchitecture and coordination across production, hardware and test engineering.
+			\item Built Python (Dash/Plotly) analysis tooling for frequency sweeps and calibration results. Stitched S2P measurements across 11 filter banks into a single validated front-end response.
+			% TODO(pat): Sensitivity check -- specific bands, array geometry and calibration
+			% architecture on a shipping counter-UAS product may be commercially sensitive.
+			% Check the first two bullets against what DroneShield says publicly. Fallback:
+			% "multi-antenna, wideband receive array" instead of the frequency range and
+			% element count.
 		\end{itemize}
 	}
-	{Python, Qt, Embedded C++, POSIX Shell, Rust, gRPC, Jira, Confluence, GitLab}
+	{Embedded C++, Python, Rust, RF Calibration, Direction Finding, FPGA/RFSoC, Qt, gRPC, Embedded Linux, numpy/scipy, Dash/Plotly, POSIX Shell, Jira, GitLab}
+	\emptySeparator
+	\experience
+		{May 2025}	{Co-founder \& CTO}{Borne Clothing - Australia}
+		{Sep 2019}	{
+			\begin{itemize}
+				\item Co-founded and grew a social-enterprise clothing business to a successful exit. Donated \$30,000+ to the Against Malaria Foundation -- 5,000 families protected from mosquito-borne disease for three years.
+			\end{itemize}
+		}
+		{Business Operations, Web Development, Lean Growth}
 	\emptySeparator
 	\experience
 	{Sep 2023}	{Embedded Systems Engineer}{ResusRight - Australia}
 	{May 2022}	{
 		\begin{itemize}
-			\item Took the lead on developing a Qt based app on an Embedded Linux SOM. This project involved system architecture design and BLE stack implementation on Embedded Linux. This project improved my software architecture design skills, and taught me to use the Qt UI framework.
-			\item Developed firmware for our "Nemo" clinical resuscitation monitor. This included development on both NXP and SiliconLabs microcontrollers. I was highly involved in implementing the BLE stack and serial communication stack.
-			\item Lead the firmware development of a testing jig used for manufacture our electronics boards. I demonstrated my ability to lead a small team by creating timelines and managing a team to deliver a project on time.
-			\item Designed and developed a companion mobile app in Flutter for our "Juno Training Monitor". In developing this app I learned to implement a Firebase authentication and database server as well as interfacing with both IOS and Android Bluetooth stacks. My app received very positive feedback during user testing.
-			\item Took over responsibility for the firmware development and maintenance of our "Juno Training Monitor", an ESP32 based embedded device with BLE capabilities. 
-			\item As a developer in a medical device company, it is imperative I focus on writing on robust, maintainable and efficient code. Not only to conform to the many standards surrounding medical device development, but also to ensure the safety and reliability of the end product. Working at ResusRight has given me the experience of both working in a fast-paced startup development environment, whilst also conforming to stringent code quality requirements.
+			\item \textbf{Led firmware development of a manufacturing test jig}, managing a small team and setting timelines that delivered on schedule and unblocked board production.
+			\item Architected a Qt application on an embedded Linux SOM, including system architecture and the BLE stack. Developed firmware for ``Nemo'', a clinical resuscitation monitor now used on real patients (NXP and Silicon Labs MCUs, BLE and serial stacks).
+			\item Took over ``Juno'' firmware (ESP32, BLE) and designed its Flutter companion app with Firebase auth/database and iOS/Android Bluetooth stacks.
+			\item Worked to IEC 62304, IEC 60601 and ISO 13485 -- safety-critical, traceable firmware in a startup moving at pace.
 		\end{itemize}
 	}
-	{Embedded C/C++, Embedded Linux, NXP \mu C, Silicon Labs \mu C, Espressif \mu C, IEC62304, IEC60601, ISO13485, Bluetooth LE, Firebase, Flutter, GitHub, VSCode, QT Suite, Python Tkinter, Notion}
+	{Embedded C/C++, Embedded Linux, Qt, NXP \mu C, Silicon Labs \mu C, Espressif \mu C, Bluetooth LE, IEC62304, IEC60601, ISO13485, Flutter, Firebase, Python, GitHub}
 \emptySeparator
 	\experience
-		{May 2022}	{Mechatronic Engineer}{CORDEL - Australia}
+		{May 2022}	{Mechatronic Engineer}{CORDEL (formerly Airsight) - Australia}
 		{Apr 2018}	{
 			\begin{itemize}
-				\item Developing pose and velocity estimation using optic flow and machine learning for more accurate point clouds. I utilised many features of the Open CV library in C++ and created many data visualisations for verification and evaluation.
-				\item Implemented an Extended Kalman Filter to fuse sensor data, (IMU, RTK GPS, LiDAR) for pose estimation and localisation. This project required expert knowledge about Bayesian filtering techniques and linear algebra.
-				\item Spent a year in New York working remotely developing 3D point extraction from 2D camera footage on a train. I demonstrated my ability to work effectively outside the office environment and without intervention.
-				\item Manufactured aluminium and carbon fibre components on a CNC using CAM software. This is where I fostered many practical skills in material properties, machinist theory and CNC operations/path planning.
-				\item Re-designed Base station housing and layout using CAD software. I developed and documented the company workflow for Fusion 360, this dramatically improved how Cordel maintained its CAD designs. With the workflow that I developed, fewer preventable mistakes were made and maintaining designs became much more achievable.
+				% TODO(pat): VERIFY AND SHARPEN THE ArduPilot/GNSS BULLETS. Claude wrote them
+				% from your description. Put the real specifics in: which airframes, what you
+				% personally built vs. operated, and what the GNSS research was trying to answer.
+				\item \textbf{Worked hands-on with ArduPilot and PX4 flight stacks} across the company's survey UAV fleet -- airframe bring-up, flight controller configuration and tuning, mission planning and field flight operations.
+				\item Contributed to \textbf{GNSS navigation research}, characterising RTK positioning accuracy and the behaviour of GNSS-based navigation under real field conditions.
+				\item \textbf{Implemented an Extended Kalman Filter fusing IMU, RTK GNSS and LiDAR} for pose estimation and localisation of a survey platform in unstructured outdoor environments. Required Bayesian filtering, linear algebra and careful handling of dropout and noise in real field data.
+				\item Developed pose and velocity estimation from optical flow in a C++/OpenCV pipeline. Spent a year in New York working largely unsupervised on 3D point extraction from 2D camera footage on a moving train.
+				\item Implemented a pseudo-RTOS to arbitrate commands over the serial port and designed the status indicator board -- PCB, C and AVR assembly firmware.
 			\end{itemize}
 		}
-		{Python, C++, Embedded C, C\#, AVR Assembly, Rust, GraphQL, OpenCV, Cloud Compare, 3D Reshaper, Jira, Confluence, Bitbucket, VSCode, Visual Studio, Fusion 360, STM32 Cube IDE, KiCAD, GitHub}
-	\emptySeparator
-	\experience
-		{Current}	{Founding Member}{Borne Clothing - Australia}
-		{Sep 2019}	{
-			\begin{itemize}
-				\item Built parts of our website and fulfilment workflow. This has required me to utilise basic web development skills as well as integrate many online services.
-				\item Jointly responsible for running the business day to day. I am continually learning how to best run a business and social enterprise in the most lean way possible.
-			\end{itemize}
-		}
-		{Excel, Squarespace, Shopify, Asana}
-	\emptySeparator
-	\experience
-		{Nov 2018}	{ELEC3850 and ENGG1003 Tutor}{University of Newcastle}
-		{Aug 2018}	{
-			\begin{itemize}
-				\item Guided students on hardware choices and best practices for electrical/PCB design.
-				\item Aided students with debugging their code and troubleshooting circuits.
-				\item Explained concepts to students that they didn't understand from the lectures.
-				\item Aided students with troubleshooting C and MATLAB code.
-				\item Helped students consolidate their progress into a final report.
-			\end{itemize}
-		}
-		{STM32, Eagle, PCB Design, Embedded C, MATLAB, Teaching}
-	\emptySeparator
-	\experience
-		{Apr 2018}    {Creative Technologist}{CORE ELECTRONICS - Adamstown}
-		{Feb 2018}    {
-			\begin{itemize}
-				\item Composed maker product review articles (PyCom, Makeblock) where I was required to combine communication excitement and interest with education and information.
-				\item Documented video tutorials and product overviews Maker community education. Here I improved my public speaking ability and communications in tech.
-			\end{itemize}
-		}
-		{MicroPyhton, PyCom, Espressif, MakeBlock, Scratch}
-	\end{experiences}
+		{ArduPilot, PX4, UAV Flight Operations, GNSS/RTK, Mission Planning, C++, Python, OpenCV, Extended Kalman Filter, Sensor Fusion, LiDAR, RTK GNSS, Point Clouds, Embedded C, AVR Assembly, RTOS, KiCad, Rust, Jira, Bitbucket}
+\end{experiences}

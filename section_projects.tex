@@ -10,34 +10,39 @@
 % CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
 
 %Section: Project
-\sectionTitle{Personal Projects}{\faLaptop}
+\sectionTitle{Projects}{\faLaptop}
 
 \begin{projects}
+	% ------------------------------------------------------------------
+	% TODO -- ROS 2 PROJECT SLOT. Full build plan in brumby-ros2-project.md.
+	% Uncomment and fill in once Stage 2 is recorded, then keep it first in
+	% this section. Delete this block entirely if you don't build it.
+	%
 	\project
-	{Campervan Conversion - Hyundai iLoad}{2023 - Current}
-	{TBA}
-	{I have taken on the task of designing and converting a Hyundai iLoad into a campervan from scratch. A project like combines the love I have for implementing awesome ideas and my sense of outdoor adventures.
-	Fitting out my iLoad has allowed me to flex my hands on practical abilities and challenged my creative side}
-	{Design, Idea Formulation, Problem Solving, Cabnet Making}
+	{Farm inspection drone in ROS 2 / PX4 SITL}{2026}
+	{\github{Prelly95/paddock}}
+	{Autonomous ROS 2 inspection stack for a VTOL platform, built to help my family monitor our farm.
+	Autonomous take-off/land with fixed-wing cruise between paddocks. Missions gated on live
+	flight conditions inferred from local weather reports. Telemetry feeds a homestead C2 dashboard for
+	water level and asset monitoring.}
+	{ROS 2, rclcpp, PX4, uXRCE-DDS, Gazebo, EKF, Guidance \& Control, C++, Python}
+	% ------------------------------------------------------------------
 
 	\project
-	{Advent Of Code}{2021 \& 2022}
-	{\github{Prelly95/AOC2021}\github{Prelly95/AOC2022}}
-	{I have long since been interested in the Rust paradigm and I've dabbled with a few projects here and there. I like to have a crack at some advent of code problems over each Christmas break.}
-	{Rust, Logic}
+	{UVie -- magnetic UV exposure tracker}{2026 -- Current}
+	{\github{Prelly95/uvie-hardware}, \github{Prelly95/uvie-firmware}, \github{Prelly95/uvie-app}}
+	{Battery-free wearable: nRF54L15, LTR390-UV-01 sensor, solar harvesting
+	(BQ25570 + supercapacitor). Embedded Rust firmware with BLE/NFC. SolidJS + Capacitor companion
+	app sharing a no\_std Rust wire protocol via WebAssembly. Hardware to app.
+	}
+	{Embedded Rust, nRF54L15, KiCad, BLE, NFC, Energy Harvesting, SolidJS, Capacitor, WebAssembly}
 
 	\project
 	{Two-wheeled balancing robot}{2017}
 	{\github{Prelly95/MCHA3K}}
-	{Design and development of a self-balancing two-wheeled robot – this required
-	implementation of full state feedback control with a Kalman filter observer @50Hz and was constrained by the
-	hardware of an Atmel ATMega32.}
-	{PCB / Circuit Design, Embedded C, Matlab, State Feedback, Eagle}
-
-	\project
-	{Borne Clothing}{2019 - Current}
-	{\sociallink{\faLink}{https://www.borneclothing.com/}{borneclothing.com}}
-	{Co-founder and Chief Technical Officer of Borne Clothing, an e-commerce social enterprise that creates sustainably sourced and ethically made mosquito-repellent clothing. We commit to donating 50\% of our profit to fund public health interventions that tackle mosquito-borne diseases. My role includes back-end website development and interpreting customer and marketing data to facilitate lean growth.}
-	{Business Management, Community Development, Social Impact}
+	{End-to-end build -- PCB, plant model, Kalman observer and full-state feedback controller in
+	MATLAB, implemented at 50\,Hz in embedded C on an 8-bit ATMega32 (no FPU).}
+	{Full-State Feedback, Kalman Observer, Real-Time Control, Embedded C, PCB Design, MATLAB, Eagle}
+	% Campervan conversion removed for space. In git history on main.
 
 \end{projects}

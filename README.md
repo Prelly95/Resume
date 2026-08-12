@@ -1,227 +1,167 @@
-Table of Contents
-1. About
-2. Acknowledgements
-2. Getting Started with this Template
-3. Tips to writing a good CV
-ABOUT---------------------------------------------------
+# Patrick Prell — CV
 
-ACKNOWLEDGMENTS-----------------------------------------
-USA STEM CV Template
-This template has been adapted from a template created by Christophe Roger (Darwiin). The further edits were made to make a more academic CV by USA standards include letter size and various sections. 
+LaTeX source for my curriculum vitae. Builds to a 3-page `cv.pdf` with LuaLaTeX.
 
-Tips on what to include at the bottom of this document.
+- **Patrick Prell** — Embedded Systems Engineer, Sydney NSW
+- prelly95@gmail.com · [linkedin.com/in/patprell](https://linkedin.com/in/patprell) · [github.com/prelly95](https://github.com/prelly95)
 
+---
 
-Awesome Source CV [![Example](https://img.shields.io/badge/Exemple-pdf-blue.svg)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume.pdf)
-=================
+## TL;DR — who I am
 
-## About
+Embedded systems and mechatronics engineer with experience spanning bare-metal firmware,
+embedded Linux, computer vision and hardware design. I like difficult problems, robust
+workflows and owning a feature end to end.
 
-**Awesome Source Latex CV** is based on a CV template created by Alessandro Plasmati. The original template use _XeLaTeX_ engine and _[Fontin Sans](http://www.exljbris.com/fontinsans.html)_ font. 
+**Experience**
 
-More informations about the original Alessandro Plasmati template can be found here :
+| Period | Role | Where |
+| --- | --- | --- |
+| Nov 2023 – present | Embedded Software Engineer | DroneShield |
+| May 2022 – Sep 2023 | Embedded Systems Engineer | ResusRight (medical devices) |
+| Apr 2018 – May 2022 | Mechatronic Engineer | CORDEL |
+| Sep 2019 – present | Founding Member | Borne Clothing |
+| Aug 2018 – Nov 2018 | Tutor, ELEC3850 / ENGG1003 | University of Newcastle |
+| Feb 2018 – Apr 2018 | Creative Technologist | Core Electronics |
 
-   -  [ Scribd ](http://fr.scribd.com/doc/16335667/Writing-your-Professional-CV-with-LaTeX)
-   -  [ LaTeX Templates ](http://www.latextemplates.com/template/plasmati-graduate-cv)
-   -  [ ShareLatex ](https://www.sharelatex.com/templates/cv-or-resume/professional-cv)
+Selected work: cut an AFE calibration process from 12+ hours to 40 minutes (20x) at
+DroneShield, removing a production bottleneck; built battery management and alerting for
+handheld devices, including a bootloader-level fix for a hardware-caused power bug. At
+ResusRight, led a Qt-on-embedded-Linux application on a SOM, developed firmware for the
+"Nemo" clinical resuscitation monitor (NXP and Silicon Labs MCUs, BLE and serial stacks),
+led the firmware for a manufacturing test jig, and built a Flutter companion app for the
+"Juno Training Monitor". At CORDEL, implemented an Extended Kalman Filter fusing IMU / RTK
+GPS / LiDAR for pose estimation, and pose/velocity estimation from optic flow with OpenCV.
 
-**Personal data** has moved on top of the first page just before the position and _[Fontin Sans](http://www.exljbris.com/fontinsans.html)_ font has been replaced by _[Source Sans Pro Font](https://github.com/adobe-fonts/source-sans-pro)_ from Adobe. _[Font Awesome](http://fontawesome.io/)_ icons are used to highlight important elements.
+**Programming languages** — C, Python; Rust, C++, MATLAB; JavaScript, Flutter;
+SystemVerilog.
 
-Unlike _Alessandro Plasmati_ CV template, all layout stuff in **Awesome Source Latex CV** has moved in the Latex class file _awesome-source-cv.cls_.
+**Domains and tooling**
 
-GETTING STARTED WITH THIS TEMPLATE ---------------------
+- *Embedded* — AtMega, STM32, ESP32/Espressif, NXP, Silicon Labs, embedded Linux, Bluetooth LE, Qt
+- *Hardware* — PCB CAD (KiCad, ATOPile, Eagle), 3D CAD (PTC Creo, Fusion 360), SMD soldering, 3D printing (FDM/SLA), CNC router and laser cutting
+- *Robotics / vision* — Bayesian filtering, sensor fusion, OpenCV, point cloud processing
+- *Standards* — IEC 62304, IEC 60601, ISO 13485 (medical device development)
 
-You can edit online **Awesome Source Latex CV** on [Overleaf](https://www.overleaf.com/latex/templates/awesome-source-cv/wrdjtkkytqcw). Feel free to use my [referal link](https://www.overleaf.com/signup?ref=54c221604cd6) if you want to create your account.
+**Education** — B.Eng. Mechatronics (Honours), University of Newcastle, 2015–2019.
+Short courses in QMS ISO 13485 (SeerPharma, 2023) and Vision-Based Navigation (2022).
 
-## How to use **Awesome Source CV** latex class
+The PDF is the source of truth, this section is just the summary.
 
-### Construct the header
+---
 
-Outside of the `\socialinfo` wrapper you have to define the mandatory parameters `\name` and `\tagline`.
+## Building
 
-```latex
-% Define author's name
-% Usage: \name{<firstname>}{<lastname>}
-% Mandatory
-\name{Christophe}{ROGER}
+### Requirements
 
-% Define author's photo (optional)
-% Usage \photo{<diameter>}{<photo>}
-\photo{2.5cm}{darwiin}
+The document **must** be compiled with **LuaLaTeX**. `cv.tex` declares
+`% !TEX TS-program = luatex`, and `documentMETADATA.cls` requires `fontspec` and
+`luainputenc`, so `pdflatex` will not work.
 
-% Define author's tagline
-% Usage: \tagline{<tag line>} 
-% Mandatory
-\tagline{Chef de projet IT}
+Fonts are vendored in `fonts/` (Adobe Source Sans Pro) and loaded via the class's
+`localFont` option, so there is nothing to install system-wide for text.
+
+You need a TeX Live installation providing LuaLaTeX, `latexmk`, and these packages:
+`fontspec`, `fontawesome`, `tikz`/`pgf`, `tcolorbox`, `titlesec`, `enumitem`, `fullpage`,
+`geometry`, `fancyhdr`, `hyphenat`, `hyperref`, `etoolbox`, `babel`.
+
+### Setup — Arch Linux
+
+```sh
+just setup
 ```
 
-Most social network have their command to render a clickable link or a simple text entry.
+which runs:
 
-```latex
-% Render author's linked-in (optional)
-% Usage: \linkedin{<linked-in-nick>}
-\linkedin{christopheroger}
-
-% Render author's viadeo(optional)
-% Usage: \viadeo{<viadeo-nick>}
-\viadeo{christopheroger}
-
-% Render author's github (optional)
-% Usage: \github{<github-nick>}
-\github{darwiin}
-
-% Render author's email (optional)
-% Usage: \email{<email adress>}
-\email{christophe.roger@mail.com}
+```sh
+sudo pacman -S --needed \
+    texlive-basic texlive-luatex texlive-latex texlive-latexrecommended \
+    texlive-latexextra texlive-fontsrecommended texlive-fontsextra \
+    texlive-pictures texlive-plaingeneric texlive-binextra
 ```
 
-Put these command in the `\socialinfo` wrapper. Feel free to add `\\` when you want to force a new line.
+Roughly 940 MB of downloads / 2.4 GB installed. The bulk is `texlive-fontsextra`, which is
+where the `fontawesome` package lives — the class uses it for the header icons, so it is
+not optional. `texlive-meta` (~7 GB) also works if you would rather not track individual
+packages.
 
-```latex
-\socialinfo{
-  \linkedin{christopheroger}
-  \viadeo{christopheroger}
-  \github{darwiin}\\
-  \smartphone{+687 123 456}
-  \email{christophe.roger@mail.com}\\
-  \address{2 Rue du quartier, 98765 Ville, Pays}\\
-  \infos{Né le 23 septembre 1982 (34 ans) à Nouméa, Nouvelle-Calédonie}
-}
+### Setup — other systems
+
+- **Debian / Ubuntu** — `sudo apt install texlive-luatex texlive-latex-extra texlive-fonts-extra texlive-pictures latexmk`
+- **macOS** — `brew install --cask mactex` (or `basictex` plus the packages listed above via `tlmgr`)
+- **Anywhere** — a full TeX Live install from [tug.org/texlive](https://tug.org/texlive/) covers everything
+
+Confirm the toolchain is visible with `just check`.
+
+### Build
+
+```sh
+just build      # produce cv.pdf
+just view       # build, then open the PDF
+just watch      # rebuild on every save
+just rebuild    # clean, then build from scratch
+just clean      # remove aux files and cv.pdf
+just clean-aux  # remove aux files, keep cv.pdf
+just            # list all recipes
 ```
 
-Use the `\makecvheader`command to generate the header.
+Without `just`, the equivalent single command is:
 
-```latex
-\makecvheader
+```sh
+latexmk -lualatex cv.tex
 ```
 
-### Construct the _experiences_ section
+`cv.pdf` and all LaTeX aux files are gitignored — the PDF is a build artefact, not a
+tracked file.
 
-To describe your experiences you have first to declare the `experiences` environment
+## Repository layout
 
-```latex
-% Begin a new experiences environment to use experience and consultantexperience macro
-\begin{experiences}
+| Path | Purpose |
+| --- | --- |
+| `cv.tex` | Main document: header details, and the list of sections to include |
+| `documentMETADATA.cls` | The document class — all layout, commands and styling |
+| `section_*.tex` | One file per CV section |
+| `fonts/` | Source Sans Pro OTF files, loaded by the `localFont` class option |
+| `patprell.png` | Header photo |
+| `justfile` | Build tasks |
 
-% Here's go your experiences
+### Editing
 
-\end{experiences}
-```
+Personal details, photo and contact links live at the top of `cv.tex`. Content lives in the
+`section_*.tex` files.
 
-Then you can describe your experiences using **\experience** and **\consultantexperience** entries. Each
-entry must be separated by the **\emptyseparator** 
+Sections are toggled by commenting the `\input{...}` lines in `cv.tex`. Currently included:
+headline, experience, skills, languages, education, references. Also present in the repo but
+commented out: `section_projects`, `section_publications_etc`, `section_honors_awards`,
+`section_outreach_volunteering`, `section_teaching_mentoring`. Note that `cv.tex` has a
+commented reference to `section_interets`, for which no file exists — uncommenting it will
+fail until the file is written.
 
-```latex
-% Begin a new experiences environment to use experience and consultantexperience macro
-\begin{experiences}
+Useful class commands, all defined in `documentMETADATA.cls`:
 
-% The experience entry work as below and can be used to describe a job experience
-  \experience
-    {End date}      {Experience title}{Enterprise}{Country}
-    {Begin date}    {
-    				  experience details
-                      \begin{itemize}
-                        \item Item 1: _Item 1 description_
-                        \item Item 2: _Item 2 description_
-                        \item Item 3: _Item 3 description_
-                      \end{itemize}
-                    }
-                    {Technology highlights}
+- `\sectionTitle{<title>}{<Font Awesome icon>}` — a section heading
+- `\experience{<end>}{<role>}{<employer>}{<start>}{<body>}{<comma-separated tags>}` — inside an `experiences` environment
+- `\school{<end>}{<qualification>}{<institution>}{<start>}` — inside an `education` environment
+- `\skill{<name>}{<1–5>}` — inside a `skills` environment
+- `\referee{<name>}{<title>}{<organisation>}{<contact>}` — inside a `referees` environment
+- `\emptySeparator` — vertical space between entries
 
-% The emptyseparator macro is used to create white space in your experience
-  \emptySeparator
+### Known build noise
 
-% The consultantexperience macro is very similar to the experience macro, but offer you 
-% the possibility tu put client details
-  \consultantexperience
-    {End date}        {Experience title}{Enterprise}{Country}
-    {Begin date}      {Client job title}{Clent enterprise}
-                    {
-                      experience details
-                      \begin{itemize}
-                        \item Item 1: _Item 1 description_
-                        \item Item 2: _Item 2 description_
-                        \item Item 3: _Item 3 description_
-                      \end{itemize}
-                    }
-                    {Technology highlights}
-\end{experiences}
-```
+Two warnings appear in `cv.log` on every build. Both are template quirks, both are harmless:
 
-## License
+- `(\end occurred inside a group at level 1)` — from the class's `\socialinfo` header handling
+- `Package xcolor Warning: Package option 'usenames' is obsolete` — from `documentMETADATA.cls:63`
 
-Latex class file _awesome-source-cv.cls_ is published under the term of the [LPPL Version 1.3c](https://www.latex-project.org/lppl.txt).
+## Credits and licence
 
-All content files are published under the term of the [CC BY-SA 4.0 License](https://creativecommons.org/licenses/by-sa/4.0/legalcode).
+`documentMETADATA.cls` is a USA STEM CV template by **Sabrina Benge**, adapted from the
+[YAAC — Another Awesome CV](https://github.com/darwiin/yaac-another-awesome-cv) template by
+**Christophe Roger (Darwiin)**, which itself derives from a template by
+**Alessandro Plasmati**. Template licensed under
+[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
 
+Fonts: [Source Sans Pro](https://github.com/adobe-fonts/source-sans-pro) by Adobe (SIL Open
+Font License). Icons: [Font Awesome](https://fontawesome.io/).
 
-
-TIPS to making a good CV /  Sections to include---------
-
-Do's
-Research and Teaching Interests
-Education
-Professional / Academic positions can separate
-Publications / Posters / Presentations
-Awards
-Contact Info
-Include current project and publications in progress
-Teaching experience / tutoring / mentoring
-Grants / Contributions to research grant writing
-Professional initiative / outreach / professional service (creating events not being in a group)
-Possible include references
-Can include coursework but drop after time
-
-Dont Include
-DOB / marital status
-misleading info
-holes in time
-headshot
-do not overinflate
-
-
-SECTIONS
-CONTACT INFORMATION: phome, email, webpage url, address
-EDUCATION: Degrees and certs since end of high school 
-CERTIFICATIONS: Courseera / EdX / Rackham etc
-AWARDS: Fellowships, grants, awards in general etc
-PROFESSIONAL and ACADEMIC EXPERIENCE: grad researcher, internship, industry jobs
-RESEARCH STATEMENT: research interests / experience < 6 lines
-PUBLICATIONS:
-- divide in journal vs conference
-- peer reviewed or not
-- do not mislead: show the complete authors' list
-- you can clarify the practice in your discipline
-- "Accepted for publication" manuscripts go here
-Could report: 
-   - Acceptance rates, and impact factors
-   - Audience sizes
-WORKS IN PROGRESS
-- Papers /scholarly work you are working on, but has not been accepted yet
-PRESENTATIONS AND POSTERS
-PATENTS / PATENTS APPLICATIONS
-GRANTS?
-MENTORING
-- Undergraduates / junior students
-TEACHING EXPERIENCE
-- Graduate instructor, grading
-- Teaching evaluations?
-- can include tutoring
-- pedagogy statement? (<6 lines)
-- guest lecturing
-PROFESSIONAL SERVICE
-- Reviewed Papers
-- contributed to research grant proposals
-- officer ina student group in your discipline or beyond
-- could split within/outside university
-OUTREACH
-- Activities to engage people in your discipline who are not usually exposed to it
-PRESS?
-PROFESSTIONAL SOCIETIES
-MENTORING
-COMMUNITY SERVICE
-
-LAYOUT
-< 3 colors
-Easy to find headers
-full width for content if possible
+The CV content itself is © Patrick Prell.
