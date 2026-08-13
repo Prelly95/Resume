@@ -1,50 +1,56 @@
 # Patrick Prell — CV
 
-LaTeX source for my curriculum vitae. Builds to a 3-page `cv.pdf` with LuaLaTeX.
+LaTeX source for my curriculum vitae. Builds to a 2-page `cv.pdf` with LuaLaTeX.
 
-- **Patrick Prell** — Embedded Systems Engineer, Sydney NSW
-- prelly95@gmail.com · [linkedin.com/in/patprell](https://linkedin.com/in/patprell) · [github.com/prelly95](https://github.com/prelly95)
+- **Patrick Prell** — Robotics & Embedded Systems Engineer, Sydney NSW
+- prelly95@gmail.com · [linkedin.com/in/patprell](https://linkedin.com/in/patprell) · [github.com/Prelly95](https://github.com/Prelly95)
 
 ---
 
 ## TL;DR — who I am
 
-Embedded systems and mechatronics engineer with experience spanning bare-metal firmware,
-embedded Linux, computer vision and hardware design. I like difficult problems, robust
-workflows and owning a feature end to end.
+Robotics and embedded systems engineer with eight years building hardware and software
+that ships to real customers. Started on ArduPilot and PX4 survey UAVs, then spent three
+years at DroneShield on deployed counter-UAS products. I lead projects end to end and do
+my best work getting a system out of the lab and into the dirt.
 
 **Experience**
 
 | Period | Role | Where |
 | --- | --- | --- |
 | Nov 2023 – present | Embedded Software Engineer | DroneShield |
+| Sep 2019 – May 2025 | Co-founder & CTO | Borne Clothing |
 | May 2022 – Sep 2023 | Embedded Systems Engineer | ResusRight (medical devices) |
-| Apr 2018 – May 2022 | Mechatronic Engineer | CORDEL |
-| Sep 2019 – present | Founding Member | Borne Clothing |
-| Aug 2018 – Nov 2018 | Tutor, ELEC3850 / ENGG1003 | University of Newcastle |
-| Feb 2018 – Apr 2018 | Creative Technologist | Core Electronics |
+| Apr 2018 – May 2022 | Mechatronic Engineer | CORDEL (formerly Airsight) |
 
-Selected work: cut an AFE calibration process from 12+ hours to 40 minutes (20x) at
-DroneShield, removing a production bottleneck; built battery management and alerting for
-handheld devices, including a bootloader-level fix for a hardware-caused power bug. At
-ResusRight, led a Qt-on-embedded-Linux application on a SOM, developed firmware for the
-"Nemo" clinical resuscitation monitor (NXP and Silicon Labs MCUs, BLE and serial stacks),
-led the firmware for a manufacturing test jig, and built a Flutter companion app for the
-"Juno Training Monitor". At CORDEL, implemented an Extended Kalman Filter fusing IMU / RTK
-GPS / LiDAR for pose estimation, and pose/velocity estimation from optic flow with OpenCV.
+Selected work: delivered angle-of-arrival estimation and the conducted calibration for a
+four-antenna direction-finding system at DroneShield; cut an AFE calibration process from
+12+ hours to 40 minutes (20x), removing the single largest production bottleneck. At
+ResusRight, led firmware for a manufacturing test jig, architected a Qt-on-embedded-Linux
+application, and developed firmware for the "Nemo" clinical resuscitation monitor. At
+CORDEL, implemented an Extended Kalman Filter fusing IMU / RTK GNSS / LiDAR for pose
+estimation, and worked hands-on with ArduPilot and PX4 flight stacks across the survey
+UAV fleet.
 
-**Programming languages** — C, Python; Rust, C++, MATLAB; JavaScript, Flutter;
-SystemVerilog.
+**Programming languages** — C, C++, Python, Rust, MATLAB, JavaScript, Flutter.
 
 **Domains and tooling**
 
-- *Embedded* — AtMega, STM32, ESP32/Espressif, NXP, Silicon Labs, embedded Linux, Bluetooth LE, Qt
-- *Hardware* — PCB CAD (KiCad, ATOPile, Eagle), 3D CAD (PTC Creo, Fusion 360), SMD soldering, 3D printing (FDM/SLA), CNC router and laser cutting
-- *Robotics / vision* — Bayesian filtering, sensor fusion, OpenCV, point cloud processing
+- *Aerial Robotics* — ArduPilot, PX4, UAV bring-up, tuning, mission planning, GNSS/RTK, field flight operations
+- *Control & Estimation* — Extended Kalman Filter, Bayesian sensor fusion, observer design, discrete-time control loops
+- *Embedded* — Embedded Linux, bare-metal C/C++, bootloaders, STM32, NXP, Silicon Labs, ESP32, Bluetooth LE, gRPC, Qt
+- *Perception / Vision* — OpenCV (C++), optical flow, 3D reconstruction, calibration
+- *Hardware* — PCB design (KiCad, Eagle), 3D CAD (PTC Creo, Fusion 360), SMD soldering, 3D printing, CNC
 - *Standards* — IEC 62304, IEC 60601, ISO 13485 (medical device development)
 
+**Projects**
+
+- *Farm inspection drone* — Autonomous ROS 2 inspection stack for a VTOL platform (PX4 SITL)
+- *UVie* — Battery-free wearable UV tracker (nRF54L15, Embedded Rust, BLE/NFC, SolidJS companion app)
+- *Balancing robot* — Full-state feedback with Kalman observer, embedded C on ATMega32
+
 **Education** — B.Eng. Mechatronics (Honours), University of Newcastle, 2015–2019.
-Short courses in QMS ISO 13485 (SeerPharma, 2023) and Vision-Based Navigation (2022).
+Short course: Vision-Based Navigation (Dr Chris Renton, 2022).
 
 The PDF is the source of truth, this section is just the summary.
 
@@ -88,8 +94,6 @@ packages.
 ### Setup — other systems
 
 - **Debian / Ubuntu** — `sudo apt install texlive-luatex texlive-latex-extra texlive-fonts-extra texlive-pictures latexmk`
-- **macOS** — `brew install --cask mactex` (or `basictex` plus the packages listed above via `tlmgr`)
-- **Anywhere** — a full TeX Live install from [tug.org/texlive](https://tug.org/texlive/) covers everything
 
 Confirm the toolchain is visible with `just check`.
 
@@ -122,28 +126,24 @@ tracked file.
 | `documentMETADATA.cls` | The document class — all layout, commands and styling |
 | `section_*.tex` | One file per CV section |
 | `fonts/` | Source Sans Pro OTF files, loaded by the `localFont` class option |
-| `patprell.png` | Header photo |
 | `justfile` | Build tasks |
 
 ### Editing
 
-Personal details, photo and contact links live at the top of `cv.tex`. Content lives in the
+Personal details and contact links live at the top of `cv.tex`. Content lives in the
 `section_*.tex` files.
 
 Sections are toggled by commenting the `\input{...}` lines in `cv.tex`. Currently included:
-headline, experience, skills, languages, education, references. Also present in the repo but
-commented out: `section_projects`, `section_publications_etc`, `section_honors_awards`,
-`section_outreach_volunteering`, `section_teaching_mentoring`. Note that `cv.tex` has a
-commented reference to `section_interets`, for which no file exists — uncommenting it will
-fail until the file is written.
+headline, skills, experience, projects, education (with references). Also present in the
+repo but commented out: `section_publications_etc`, `section_honors_awards`,
+`section_outreach_volunteering`, `section_teaching_mentoring`.
 
 Useful class commands, all defined in `documentMETADATA.cls`:
 
 - `\sectionTitle{<title>}{<Font Awesome icon>}` — a section heading
 - `\experience{<end>}{<role>}{<employer>}{<start>}{<body>}{<comma-separated tags>}` — inside an `experiences` environment
 - `\school{<end>}{<qualification>}{<institution>}{<start>}` — inside an `education` environment
-- `\skill{<name>}{<1–5>}` — inside a `skills` environment
-- `\referee{<name>}{<title>}{<organisation>}{<contact>}` — inside a `referees` environment
+- `\project{<title>}{<year>}{<link>}{<description>}{<tags>}` — inside a `projects` environment
 - `\emptySeparator` — vertical space between entries
 
 ### Known build noise
