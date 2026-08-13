@@ -147,6 +147,11 @@ acs-*.bib
 # *.tikz
 *-tikzDictionary
 
+# latexindent
+*.bak[0-9]*
+__latexindent_temp*.tex
+indent.log
+
 # listings
 *.lol
 
@@ -299,3 +304,17 @@ TSWLatexianTemp*
 # option is specified. Footnotes are the stored in a file with suffix Notes.bib.
 # Uncomment the next line to have this generated file ignored.
 #*Notes.bib
+
+## Operating system:
+.DS_Store
+Thumbs.db
+
+## Editors:
+# vim / emacs backups (.vscode is tracked - it holds the ltex dictionaries)
+*~
+*.swp
+*.swo
+
+## Tooling:
+# Claude Code machine-local settings
+.claude/settings.local.json
