@@ -4,34 +4,40 @@
 # `% !TEX TS-program = luatex` and documentMETADATA.cls loads
 # fontspec + luainputenc, neither of which work under pdflatex.
 
-main := "cv"
+src     := "cv"
+outname := "patrick_prell_cv"
+outdir  := "build"
 
 # List available recipes
 default:
     @just --list
 
-# Build cv.pdf
+# Build patrick_prell_cv.pdf into build/
 build:
-    latexmk -lualatex -interaction=nonstopmode -halt-on-error {{main}}.tex
+    mkdir -p {{outdir}}
+    latexmk -lualatex -interaction=nonstopmode -halt-on-error \
+        -output-directory={{outdir}} -jobname={{outname}} {{src}}.tex
 
 # Clean everything, then build from scratch
 rebuild: clean build
 
 # Rebuild automatically whenever a source file is saved
 watch:
-    latexmk -lualatex -pvc -interaction=nonstopmode {{main}}.tex
+    mkdir -p {{outdir}}
+    latexmk -lualatex -pvc -interaction=nonstopmode \
+        -output-directory={{outdir}} -jobname={{outname}} {{src}}.tex
 
 # Build and open the PDF in the default viewer
 view: build
-    xdg-open {{main}}.pdf
+    xdg-open {{outdir}}/{{outname}}.pdf
 
 # Remove LaTeX aux files but keep the PDF
 clean-aux:
-    latexmk -c
+    latexmk -c -output-directory={{outdir}}
 
 # Remove LaTeX aux files and the PDF
 clean:
-    latexmk -C
+    latexmk -C -output-directory={{outdir}}
 
 # Verify the toolchain is installed
 check:
