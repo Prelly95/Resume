@@ -16,14 +16,10 @@
 	{Current}	{Embedded Software Engineer}{DroneShield - Australia}
 	{Nov 2023}	{
 		\begin{itemize}
-			\item Delivered angle-of-arrival estimation and the conducted calibration behind it for a four-antenna direction-finding system (400\,MHz--7\,GHz). Designed simultaneous multi-channel injection through a characterised splitter, producing a per-channel correction table that removes amplitude and phase imbalance and makes bearing accuracy repeatable unit to unit.
+			\item Delivered the conducted calibration behind the angle-of-arrival estimation for a four-antenna direction-finding system (400\,MHz--7\,GHz). Designed simultaneous multi-channel injection through a characterised splitter, producing a per-channel correction table that removes amplitude and phase imbalance and makes bearing accuracy repeatable unit to unit.
 			\item Cut analog front-end calibration from over 12 hours to 40 minutes -- a \textbf{20x} improvement that removed the single largest bottleneck in production. Required a full rearchitecture and coordination across production, hardware and test engineering.
+			\item Lead the effort for cleaning up and modernising our C++ Qt integrated display codebase. Enforcing clang formatting and linting style guidelines. greatly improving code readablity and reducing the bug count within this project.
 			\item Built Python (Dash/Plotly) analysis tooling for frequency sweeps and calibration results. Stitched S2P measurements across 11 filter banks into a single validated front-end response.
-			% TODO(pat): Sensitivity check -- specific bands, array geometry and calibration
-			% architecture on a shipping counter-UAS product may be commercially sensitive.
-			% Check the first two bullets against what DroneShield says publicly. Fallback:
-			% "multi-antenna, wideband receive array" instead of the frequency range and
-			% element count.
 		\end{itemize}
 	}
 	{Embedded C++, Python, Rust, RF Calibration, Direction Finding, FPGA/RFSoC, Qt, gRPC, Embedded Linux, numpy/scipy, Dash/Plotly, POSIX Shell, Jira, GitLab}
