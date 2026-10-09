@@ -317,3 +317,5 @@ Thumbs.db
 ## Tooling:
 # Claude Code machine-local settings
 .claude/settings.local.json
+
+cv.pdf

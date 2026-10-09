@@ -14,11 +14,12 @@ outdir  := "build"
 default:
     @just --list
 
-# Build patrick_prell_cv.pdf into build/
+# Build patrick_prell_cv.pdf into build/ and copy to repo root (tracked deliverable)
 build:
     mkdir -p {{outdir}}
     latexmk -lualatex -interaction=nonstopmode -halt-on-error \
         -output-directory={{outdir}} -jobname={{outname}} {{src}}.tex
+    cp {{outdir}}/{{outname}}.pdf {{outname}}.pdf
 
 # Clean everything, then build from scratch
 rebuild: clean build
@@ -41,11 +42,12 @@ clean-aux:
 clean:
     latexmk -C -output-directory={{outdir}}
 
-# Build the cover letter PDF into build/
+# Build the cover letter PDF into build/ and copy to repo root (tracked deliverable)
 cover-letter:
     mkdir -p {{outdir}}
     latexmk -lualatex -interaction=nonstopmode -halt-on-error \
         -output-directory={{outdir}} -jobname={{cl_out}} {{cl_src}}.tex
+    cp {{outdir}}/{{cl_out}}.pdf {{cl_out}}.pdf
 
 # Build both the CV and cover letter
 all: build cover-letter

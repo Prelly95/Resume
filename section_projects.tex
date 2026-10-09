@@ -13,36 +13,37 @@
 \sectionTitle{Projects}{\faLaptop}
 
 \begin{projects}
+	\project
+	{Optical-flow obstacle avoidance for a fixed-wing UAV}{2019}
+	{\emph{B.Eng. (Hons) thesis -- University of Newcastle, supervised by Dr Chris Renton} \quad \github{Prelly95/Final-Year-Project}}
+	{Vision-only (single-camera) obstacle avoidance that steers on the divergence of the optical-flow field.
+	Derived the flow kinematics from first principles on a unit view-sphere (6-DOF camera motion, rotation
+	matrices across camera/body/world frames, inverse-depth parameterisation) and posed heading selection as a
+	divergence-versus-goal cost-function optimisation. Built a full camera and lens-distortion calibration
+	pipeline (undistortion in C via a MATLAB MEX) and validated it in a Unity physics simulation against
+	ground-truth depth.}
+	{Optical Flow, Computer Vision, Kinematics, Coordinate Transforms, Camera Calibration, Optimisation, C++/OpenCV, MATLAB, C (MEX), Unity}
+
 	% ------------------------------------------------------------------
-	% TODO -- ROS 2 PROJECT SLOT. Full build plan in brumby-ros2-project.md.
-	% Uncomment and fill in once Stage 2 is recorded, then keep it first in
-	% this section. Delete this block entirely if you don't build it.
-	%
+	% ROS 2 project. Keep only if the stack is genuinely built -- delete
+	% this block if not. See git history on main for context.
 	\project
 	{Farm inspection drone in ROS 2 / PX4 SITL}{2026}
 	{\github{Prelly95/paddock}}
-	{Autonomous ROS 2 inspection stack for a VTOL platform, built to help my family monitor our farm.
-	Autonomous take-off/land with fixed-wing cruise between paddocks. Missions gated on live
-	flight conditions inferred from local weather reports. Telemetry feeds a homestead C2 dashboard for
-	water level and asset monitoring.}
-	{ROS 2, rclcpp, PX4, uXRCE-DDS, Gazebo, EKF, Guidance \& Control, C++, Python}
+	{Autonomous ROS 2 (rclcpp) inspection stack for a VTOL platform. Guidance and control for autonomous
+	take-off/land and fixed-wing cruise between paddocks, with the EKF-based state estimate and mission logic
+	developed and tested in Gazebo/PX4 SITL simulation before flying on hardware. Missions gated on live flight
+	conditions; telemetry feeds a homestead C2 dashboard for water level and asset monitoring.}
+	{ROS 2, rclcpp, PX4, uXRCE-DDS, Gazebo, EKF, Guidance \& Control, Simulation-to-Hardware, C++, Python}
 	% ------------------------------------------------------------------
-
-	\project
-	{UVie -- magnetic UV exposure tracker}{2026 -- Current}
-	{\github{Prelly95/uvie-hardware}, \github{Prelly95/uvie-firmware}, \github{Prelly95/uvie-app}}
-	{Battery-free wearable: nRF54L15, LTR390-UV-01 sensor, solar harvesting
-	(BQ25570 + supercapacitor). Embedded Rust firmware with BLE/NFC. SolidJS + Capacitor companion
-	app sharing a no\_std Rust wire protocol via WebAssembly. Hardware to app.
-	}
-	{Embedded Rust, nRF54L15, KiCad, BLE, NFC, Energy Harvesting, SolidJS, Capacitor, WebAssembly}
 
 	\project
 	{Two-wheeled balancing robot}{2017}
 	{\github{Prelly95/MCHA3K}}
-	{End-to-end build -- PCB, plant model, Kalman observer and full-state feedback controller in
-	MATLAB, implemented at 50\,Hz in embedded C on an 8-bit ATMega32 (no FPU).}
-	{Full-State Feedback, Kalman Observer, Real-Time Control, Embedded C, PCB Design, MATLAB, Eagle}
-	% Campervan conversion removed for space. In git history on main.
+	{Took the full loop from mathematics to hardware: derived and linearised the plant model, designed a Kalman
+	observer and full-state feedback controller in MATLAB, then implemented the discrete-time control law at
+	50\,Hz in embedded C on an 8-bit ATMega32 with no FPU. End-to-end build including the PCB.}
+	{Full-State Feedback, Kalman Observer, Real-Time Control, Plant Modelling, Embedded C, PCB Design, MATLAB, Eagle}
+	% UVie wearable and campervan conversion removed for space / relevance. In git history on main.
 
 \end{projects}

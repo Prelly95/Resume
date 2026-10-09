@@ -16,10 +16,10 @@
 	{Current}	{Embedded Software Engineer}{DroneShield - Australia}
 	{Nov 2023}	{
 		\begin{itemize}
-			\item Delivered the conducted calibration behind the angle-of-arrival estimation for a four-antenna direction-finding system (400\,MHz--7\,GHz). Designed simultaneous multi-channel injection through a characterised splitter, producing a per-channel correction table that removes amplitude and phase imbalance and makes bearing accuracy repeatable unit to unit.
-			\item Cut analog front-end calibration from over 12 hours to 40 minutes -- a \textbf{20x} improvement that removed the single largest bottleneck in production. Required a full rearchitecture and coordination across production, hardware and test engineering.
-			\item Lead the effort for cleaning up and modernising our C++ Qt integrated display codebase. Enforcing clang formatting and linting style guidelines. greatly improving code readablity and reducing the bug count within this project.
+			\item Delivered the conducted calibration behind the angle-of-arrival estimation for a four-antenna direction-finding system (400\,MHz - 7\,GHz). Designed simultaneous multi-channel injection through a characterised splitter, producing a per-channel correction table that removes RSSI imbalance compensating the bearing angle accuracy.
+			\item Cut analog front-end calibration from over 12 hours to 40 minutes. A \textbf{20x} improvement that removed the single largest bottleneck in production. Required a full rearchitecture and coordination across production, hardware and test engineering.
 			\item Built Python (Dash/Plotly) analysis tooling for frequency sweeps and calibration results. Stitched S2P measurements across 11 filter banks into a single validated front-end response.
+			\item Led the cleanup and modernisation of our C++ Qt display codebase; enforcing clang-format and lint rules, improving readability and cutting the bug count.
 		\end{itemize}
 	}
 	{Embedded C++, Python, Rust, RF Calibration, Direction Finding, FPGA/RFSoC, Qt, gRPC, Embedded Linux, numpy/scipy, Dash/Plotly, POSIX Shell, Jira, GitLab}
@@ -28,7 +28,7 @@
 		{May 2025}	{Co-founder \& CTO}{Borne Clothing - Australia}
 		{Sep 2019}	{
 			\begin{itemize}
-				\item Co-founded and grew a social-enterprise clothing business to a successful exit. Donated \$30,000+ to the Against Malaria Foundation -- 5,000 families protected from mosquito-borne disease for three years.
+				\item Co-founded and grew a social-enterprise clothing business to a successful exit. Donated \$30,000+ to the Against Malaria Foundation, resulting in 5,000 families protected from mosquito-borne disease for three years.
 			\end{itemize}
 		}
 		{Business Operations, Web Development, Lean Growth}
@@ -38,26 +38,21 @@
 	{May 2022}	{
 		\begin{itemize}
 			\item \textbf{Led firmware development of a manufacturing test jig}, managing a small team and setting timelines that delivered on schedule and unblocked board production.
-			\item Architected a Qt application on an embedded Linux SOM, including system architecture and the BLE stack. Developed firmware for ``Nemo'', a clinical resuscitation monitor now used on real patients (NXP and Silicon Labs MCUs, BLE and serial stacks).
-			\item Took over ``Juno'' firmware (ESP32, BLE) and designed its Flutter companion app with Firebase auth/database and iOS/Android Bluetooth stacks.
-			\item Worked to IEC 62304, IEC 60601 and ISO 13485 -- safety-critical, traceable firmware in a startup moving at pace.
+			\item Architected a Qt application and BLE stack on an embedded Linux SOM for ``Nemo'', a clinical resuscitation monitor (NXP and Silicon Labs MCUs, BLE and serial stacks).
+			\item Worked to IEC 62304, IEC 60601 and ISO 13485. Safety-critical, traceable firmware in a startup moving at pace.
 		\end{itemize}
 	}
-	{Embedded C/C++, Embedded Linux, Qt, NXP \mu C, Silicon Labs \mu C, Espressif \mu C, Bluetooth LE, IEC62304, IEC60601, ISO13485, Flutter, Firebase, Python, GitHub}
+	{Embedded C/C++, Embedded Linux, Qt, NXP \mu C, Silicon Labs \mu C, Espressif \mu C, Bluetooth LE, IEC62304, IEC60601, ISO13485, Python, GitHub}
 \emptySeparator
 	\experience
 		{May 2022}	{Mechatronic Engineer}{CORDEL (formerly Airsight) - Australia}
 		{Apr 2018}	{
 			\begin{itemize}
-				% TODO(pat): VERIFY AND SHARPEN THE ArduPilot/GNSS BULLETS. Claude wrote them
-				% from your description. Put the real specifics in: which airframes, what you
-				% personally built vs. operated, and what the GNSS research was trying to answer.
-				\item \textbf{Worked hands-on with ArduPilot and PX4 flight stacks} across the company's survey UAV fleet -- airframe bring-up, flight controller configuration and tuning, mission planning and field flight operations.
-				\item Contributed to \textbf{GNSS navigation research}, characterising RTK positioning accuracy and the behaviour of GNSS-based navigation under real field conditions.
-				\item \textbf{Implemented an Extended Kalman Filter fusing IMU, RTK GNSS and LiDAR} for pose estimation and localisation of a survey platform in unstructured outdoor environments. Required Bayesian filtering, linear algebra and careful handling of dropout and noise in real field data.
-				\item Developed pose and velocity estimation from optical flow in a C++/OpenCV pipeline. Spent a year in New York working largely unsupervised on 3D point extraction from 2D camera footage on a moving train.
-				\item Implemented a pseudo-RTOS to arbitrate commands over the serial port and designed the status indicator board -- PCB, C and AVR assembly firmware.
+				\item \textbf{Implemented an Extended Kalman Filter fusing IMU and RTK GNSS} for pose estimation and localisation of a survey platform in unstructured outdoor environments; the resulting pose estimate registered the \textbf{LiDAR} scans into a coherent 3D point cloud. Handled the coordinate-frame transforms between sensors, the Bayesian filtering and linear algebra, and the measurement dropout and noise of real field data; reconciling the filter model with how the hardware actually behaved.
+				\item Built a \textbf{C++/OpenCV perception pipeline} that recovered 3D structure and point clouds from the optical flow of a monocular GoPro feed. Spent a year in New York, working largely unsupervised, developing this on 2D camera footage from a moving train.
+				\item \textbf{Worked hands-on with ArduPilot and PX4 flight stacks} across the company's survey UAV fleet. Airframe bring-up, flight controller configuration and tuning, mission planning and field flight operations.
 			\end{itemize}
 		}
 		{ArduPilot, PX4, UAV Flight Operations, GNSS/RTK, Mission Planning, C++, Python, OpenCV, Extended Kalman Filter, Sensor Fusion, LiDAR, RTK GNSS, Point Clouds, Embedded C, AVR Assembly, RTOS, KiCad, Rust, Jira, Bitbucket}
 \end{experiences}
+
